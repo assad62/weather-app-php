@@ -9,13 +9,11 @@ function getCountryObject(){
     
     $countryObj = new Country();
     
-
-    // for 000Webhost.com
-    //$ip = $_SERVER['REMOTE_ADDR'];
-    //for heroku: 
+    /*for 000Webhost.com use this
+    $ip = $_SERVER['REMOTE_ADDR'];
+    for heroku use as below */
+    
     $ip = $_SERVER["HTTP_X_FORWARDED_FOR"]; 
-
-   
     $query = @unserialize (file_get_contents('http://ip-api.com/php/'.$ip));
     if ($query && $query['status'] == 'success') {
          $countryObj->set_country_name($query['country']);
