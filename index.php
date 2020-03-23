@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whats the weather like today?</title>
     <link rel="stylesheet" type="text/css" href="./Styles/styles.css">
+    
+
 </head>
 <body>
 

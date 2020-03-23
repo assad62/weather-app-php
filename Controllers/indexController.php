@@ -8,8 +8,8 @@ include "./Constants/constants.php";
 function getCountryObject(){
     
     $countryObj = new Country();
-
-    $query = @unserialize (file_get_contents('http://ip-api.com/php/'));
+    $ip = $_REQUEST['REMOTE_ADDR'];
+    $query = @unserialize (file_get_contents('http://ip-api.com/php/'.$ip));
     if ($query && $query['status'] == 'success') {
          $countryObj->set_country_name($query['country']);
          $countryObj->set_city_name($query['city']);
