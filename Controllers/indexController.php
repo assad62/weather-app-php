@@ -8,8 +8,14 @@ include "./Constants/constants.php";
 function getCountryObject(){
     
     $countryObj = new Country();
-    $ip=$_SERVER['REMOTE_ADDR'];
-    //echo $ip;
+    
+
+    // for 000Webhost.com
+    //$ip = $_SERVER['REMOTE_ADDR'];
+    //for heroku: 
+    $ip = $_SERVER["HTTP_X_FORWARDED_FOR"]; 
+
+   
     $query = @unserialize (file_get_contents('http://ip-api.com/php/'.$ip));
     if ($query && $query['status'] == 'success') {
          $countryObj->set_country_name($query['country']);
